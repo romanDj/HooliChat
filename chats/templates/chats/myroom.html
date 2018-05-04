@@ -1,0 +1,27 @@
+{% extends 'chats/base.html' %}
+{% load staticfiles %}
+{% block content  %}
+	
+		<div class="card container p-0" id="cardMessage"> 
+			<div class="card-body">
+				<div class="col p-1">
+					<div class="d-flex flex-wrap alert alert-primary" id="info">
+						<div class="pb-2" id="ava">
+							<img src="{% static 'chats/img/default.jpg' %}">
+						</div>
+						<div class="p-2">
+							<h5>Логин:</h5>
+							<p>{{request.user}}</p>
+						</div>
+						
+					</div>
+					<button class="btn btn-danger">Удалить аккаунт</button>	
+				</div>
+			</div>	
+		</div>
+{% endblock %}
+
+	
+	
+
+

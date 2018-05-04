@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Соц. сеть</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/bootstrap-grid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/bootstrap-reboot.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/style.css' %}">
+
+</head>
+<body>
+	<div class="container mt-5">
+	<div class="card ">
+		<div class="card-body justify-content-md-center">
+			<div class="row justify-content-md-center">
+				{% block form %}
+			
+				<form class="col-md-4" action="{% url 'sigin' %}" method="post">
+					{% csrf_token %}
+					{% if error %}
+					<div class="alert alert-danger" role="alert">{{error}}</div>
+					{% endif %}
+					<h4 class="text-center">Авторизация</h4>
+					<div class="form-group">
+						<label>Логин:</label>
+			    		{{ myform.login }}
+			    	</div>
+			    	<div class="form-group">
+			    		<label>Пароль:</label>
+			    		{{ myform.password }}
+			    	</div>
+			    	<a href="{% url 'registration' %}" class="text-left">Регистрация</a> 
+					<input class="btn btn-success float-right" type="submit" value="Войти" />
+				
+				</form>
+				{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="{% static 'chats/js/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'chats/js/bootstrap.js' %}"></script>
+</body>
+</html>

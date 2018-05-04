@@ -1,0 +1,27 @@
+{% extends 'chats/base.html' %}
+{% load staticfiles %}
+{% block content %}
+		<div class="card container p-0" id="cardMessage"> 
+			<form class="p-2">
+				<div class="d-flex flex-wrap p-1">
+				  	<div class="col-10 col-lg-11 p-0">
+				  		<input class="form-control" type="search" placeholder="Имя пользователя"></textarea>
+				  	</div>
+					<div class="col-2  col-lg-1 p-0 pl-2">
+					   	<button class="btn col p-1" id="searchBtn" type="submit"><img src="{% static 'chats/img/search.png' %}"></button>
+					</div>
+				</div>
+			</form>
+			<hr class="m-0">
+			<div class="p-0">
+
+				<div class="list-group listUser" >
+				{% for item in users %}
+				  <a href="{% url 'mychats' item.id %}" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname">{{item.username}}</span></a>
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	
+	
+{% endblock %}

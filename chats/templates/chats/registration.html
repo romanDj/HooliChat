@@ -1,0 +1,11 @@
+{% extends 'chats/auth.html'  %}
+{% block form %}
+	<form class="col-md-4" method="post">
+		{% csrf_token %}
+		<h4 class="text-center">Регистрация</h4>
+				 {{form.as_p}}
+				 <a href="{% url 'index' %}">Уже есть аккаунт</a>
+		<input class="btn btn-success float-right" type="submit" value="Регистрация" />
+	</form>
+{% endblock %}
+			

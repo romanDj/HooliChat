@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Соц. сеть</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/bootstrap-grid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/bootstrap-reboot.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chats/css/style.css' %}">
+	<script type="text/javascript" src="{% static 'chats/js/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'chats/js/bootstrap.js' %}"></script>
+</head>
+<body>
+	<nav class="navbar  navbar-dark navbar-expand-lg bg-secondary mb-4" id="navBar">
+		{% if page == "chats" %}
+		<button class="btn btn-default" id="backBtn"><img src="{% static 'chats/img/backbtn.png' %}"></button>
+		{% endif %}
+		<div class="navbar-brand"></div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#hat-navbar" aria-controls="hat-navbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="hat-navbar">
+			<ul class="navbar-nav container collapse navbar-collapse">
+				<li><a class="nav-item nav-link" href="{% url 'profil' %}">Профиль</a></li>
+				<li><a class="nav-item nav-link" href="{% url 'mychats' %}">Чат</a></li>
+				<li><a class="nav-item nav-link" href="{% url 'users' %}">Пользователи</a></li>
+				<li><a class="nav-item nav-link active border-left text-light" href="{% url 'logout' %}">Выйти из аккаунта, {{request.user}}</a></li>
+			</ul>
+		</div>
+		
+	</nav>
+
+	{% block content %}
+	{% endblock %}
+
+	<script type="text/javascript" src="{% static 'chats/js/script.js' %}"></script>
+</body>
+</html>

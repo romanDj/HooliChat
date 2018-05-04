@@ -1,0 +1,147 @@
+#messageWin{
+	height: 80vh;
+}
+
+#message{
+	background: url(../img/backimg.png);
+	height: calc(100% - 46px);
+
+}
+#textAr{
+	height: 46px;
+	box-shadow: -2px -7px 5px -9px rgba(0,0,0,0.5);
+}
+#textAr textarea{
+	resize: none;
+	max-height: 38px;
+}
+
+.listUser img{
+	border-radius: 50px;
+	width: 35px;
+	height: 35px;
+}
+
+.listUser{
+	overflow-y: scroll;
+	max-height: 70vh;
+}
+
+
+
+#listChats img{
+	border-radius: 50px;
+	width: 35px;
+	height: 35px;
+	
+}
+#listChats{
+	overflow-y:scroll;
+	
+}
+
+#listChats>div>a:focus{
+	background: #b0bec561;
+}
+
+#message{
+	overflow-y: scroll;
+	-webkit-overflow-y: scroll;
+	-moz-overflow-y: scroll;
+	-ms-overflow-y: scroll;
+	-o-overflow-y: scroll;
+}
+
+#message div:not(.clear){
+	background: #fafafa;
+	display: inline-block;
+	width: auto;
+	max-width: 60%;
+	clear: left;
+}
+
+.clear{
+	clear: both;
+}
+
+.date{
+	background: rgba(255,255,255,0.8);
+	display: inline-block;
+	padding: 10px;
+	border-radius: 12px;
+	font-weight: bold;
+}
+.date-wrapper {
+	text-align: center;
+}
+.nickname {
+	position: relative;
+	top: 5px;
+}
+
+#submitBtn{
+
+	padding: 0;
+}
+
+#submitBtn img {
+	height: 36px;
+}
+
+#backBtn{
+	padding: 0;
+	display: none;
+}
+
+#backBtn img{
+	height: 38px;
+}
+
+#searchBtn img{
+	height: 28px;
+}
+
+#ava img{
+	width: 150px;
+	height: 150px;
+	border-radius: 5px;
+}
+
+
+@media(max-width: 991px){
+
+	#backBtn{
+		display: inline-block;
+	}
+
+	#messageWin{
+		height: calc(100vh - 56px);
+	}	
+	#listChats{
+		display: none;
+	}
+	
+	#cardMessage{
+		max-width: none;
+		width: 100vw;
+	}
+
+	#message div:not(.clear){
+	
+		max-width: 80%;
+	}
+
+	#navBar{
+		margin-bottom: 0 !important;
+	}
+
+	body {
+		overflow: hidden;
+	}
+
+	.listUser{
+		max-height: none;
+		height: calc(100vh - 118px);	
+	}
+
+}
