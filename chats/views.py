@@ -69,3 +69,15 @@ def lol(request):
 	message = rsa.decrypt(crypto, privkey)
 	print(message.decode())
 	return HttpResponse(message)
+
+def add_message(request):
+	print('сообщение получено')
+	if request.method == 'GET':
+		getMe = User.objects.get(id = request.user.id)
+		getFriend = User.objects.get(id = request.GET['recipient'])
+		newMess = PrivateMessages(sender = getMe, recipient = getFriend, message_text = request.GET['text'])
+		newMess.save()
+		print('Добавлено')
+
+	return HttpResponse('lollol')
+

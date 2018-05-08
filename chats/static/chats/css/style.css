@@ -51,8 +51,14 @@
 	-ms-overflow-y: scroll;
 	-o-overflow-y: scroll;
 }
-
-#message div:not(.clear){
+/*.all_messages div:not(.clear){ 
+	background: #fafafa;
+	display: inline-block;
+	width: auto;
+	max-width: 60%;
+	clear: left;
+}*/
+#message .all_messages div:not(.clear){
 	background: #fafafa;
 	display: inline-block;
 	width: auto;
@@ -106,7 +112,10 @@
 	height: 150px;
 	border-radius: 5px;
 }
-
+.all_messages  {
+	width: 100%;
+	background-color: rgba(0,0,0,0);
+}
 
 @media(max-width: 991px){
 

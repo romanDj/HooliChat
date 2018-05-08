@@ -6,76 +6,39 @@
 			<div class="col col-lg-3  p-0 border-right" id="listChats">
 				<div class="list-group" >
 					{% for item in interlocutors %}
-				  <a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname">
-				  	{% if item.sender == request.user %}
-				  		{{ item.recipient }}
+					{% if item.sender == request.user %}
+				  	<a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{item.recipient.id}}" >
+				  	{{ item.recipient }} 
+				  	</span></a>
 				  	{% else %}
+				  	<a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{item.sender.id}}" >
 				  		{{ item.sender }}
+				  		</span></a>
 				  	{% endif %}
-				  </span></a>
+				 
 				  {% endfor %}
 				  {% if getUser %}
-				  <a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname">{{getUser.username}}</span></a>
+				  <a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{getUser.id}}">{{getUser.username}}</span></a>
 				  {% endif %}
 				</div>
 			</div>
 			<div class="col col-lg-9 p-0 h-100">
 				<div  id="message"  class="p-3" >
-
-
-					<div class="date-wrapper clear mt-5 mb-3 rounded"><p class='date p-3'>Выберите собеседника</p></div>
-					<div class="mb-3  rounded p-2">
-						vdfd
+					<div class="all_messages">
+						<div class="date-wrapper clear mt-5 mb-3 rounded"><p class='date p-3'>Выберите собеседника</p></div>
 					</div>
-					<div class="date-wrapper clear mb-3 rounded"><p class='date p-3'>23 апреля 2018</p></div>
-					<div class="mb-3 rounded float-right p-3">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-					<div class="clear"></div>
-					<div class="mb-3 p-3  rounded float-left">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-					<div class="clear"></div>
-					<div class="mb-3 p-3  rounded float-left">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-					<div class="date-wrapper clear mb-3 rounded"><p class='date p-3'>23 апреля 2018</p></div>
-					<div class="mb-3 p-3  rounded float-right">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-					<div class="clear"></div>
 				</div>
 				<div class="bg-light rounded-bottom" id="textAr">
-				  <form >
+				 
 				  	<div class="d-flex flex-wrap p-1">
 				  		<div class="col-10 col-xl-10 col-lg-10 p-0">
-				  			 <textarea class="form-control" type="search" placeholder="Сообщение"></textarea>
+				  			 <textarea class="form-control" type="search" id="messageContent" placeholder="Сообщение"></textarea>
 				  		</div>
 					   <div class="col-2 col-xl-2 col-lg-2 p-0 pl-1">
 					   	 <button class="btn col" id="submitBtn" type="submit"><img src="{% static 'chats/img/send.png' %}"></button>
 					   </div>
 					   </div>
-					</form>
+				
 				</div>
 			</div>
 		</div>

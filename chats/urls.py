@@ -11,4 +11,5 @@ urlpatterns = [
     path('users/', views.users, name='users'),
     path('registration/', views.RegisterFormView.as_view(), name='registration'),
     path('lol/', views.lol, name='lol'),
+    path('addmessage/', views.add_message, name='addmessage'),
 ]
