@@ -6,17 +6,10 @@
 			<div class="col col-lg-3  p-0 border-right" id="listChats">
 				<div class="list-group" >
 					{% for item in interlocutors %}
-					{% if item.sender == request.user %}
-				  	<a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{item.recipient.id}}" >
-				  	{{ item.recipient }} 
+					<a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{item.username.id}}" >
+				  	{{ item.username }}
 				  	</span></a>
-				  	{% else %}
-				  	<a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{item.sender.id}}" >
-				  		{{ item.sender }}
-				  		</span></a>
-				  	{% endif %}
-				 
-				  {% endfor %}
+				  	{% endfor %}
 				  {% if getUser %}
 				  <a href="#" class="list-group-item list-group-item-action border-0"><img class="mr-2 float-left" src="{% static 'chats/img/default.jpg' %}"><span class="nickname" data-id="{{getUser.id}}">{{getUser.username}}</span></a>
 				  {% endif %}

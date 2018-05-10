@@ -8,7 +8,7 @@ class PrivateMessages(models.Model):
 	recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipient')
 	message_text = models.CharField(max_length=1000)
 	def  __str__(self):
-		return str(self.id)
+		return str(str(self.id)+": from "+str(self.sender)+' to '+str(self.recipient))
 
 class Conversation(models.Model):
 	name = models.CharField(max_length=200)
